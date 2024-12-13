@@ -1,3 +1,3 @@
-
+![Figure one of the research manuscript](https://github.com/CSG-Group-Mainz/RNA004-Manuscript/blob/dev/Figures/FINAL_PANEL1.svg)
 # RNA004-Manuscript
 This repository is a complement to our research paper ... 
