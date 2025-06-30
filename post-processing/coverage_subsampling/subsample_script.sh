@@ -8,7 +8,7 @@ ml samtools
 #count the read numbers in the RNA002 sample
 samtools view -c  RNA002_blood.0.7.2.GRCh38.bam
 #5061038
-#count the read numbers in the RNA004 sample and express themm as a fraction of cooverage
+#count the read numbers in the RNA004 sample and express them as a fraction of cooverage
 samtools view -c  RNA004_blood.0.7.2.GRCh38.bam
 #5061038 /  15017487 = 0,33700964748629381200729522855588
 samtools view -c RNA004_S5_DRS_basecall.0.7.2.GRCh38.bam
@@ -28,6 +28,7 @@ samtools index -@8 cov_sub_RNA004_S5_DRS_basecall.0.7.2.GRCh38.bam
 samtools index -@8 cov_sub_RNA004_blood.0.7.2.GRCh38.bam
 
 #modkit redo with subsampled bams to have calls with less coverage
+#the output of this step will be mod bed files run on the subsampled bams
 
 ml modkit/0.3.1
 
@@ -43,9 +44,8 @@ function do_pileup {
 		       #
 	base=$(basename $1)
 	echo $base
-	modkit pileup --threads 32 -r /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/CHR20_BAMS/GRCh38.primary_assembly.genome.fasta --ignore a  --log-filepath ${base/.bam/.modkit.log}  --filter-threshold T:0.8 --mod-threshold 17802:0.98 $1 ${base/.bam/_pseu.cov_sub_r1.mod.bed}
-	modkit pileup --threads 32 --motif DRACH 2 -r /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/CHR20_BAMS/GRCh38.primary_assembly.genome.fasta --ignore 17802  --log-filepath ${base/.bam/.modkit.log}  --filter-threshold A:0.8 --mod-threshold a:0.98 $1 ${base/.bam/_m6A.cov_sub_r1.mod.bed}
-														      #
+	modkit pileup --threads 32 -r GRCh38.primary_assembly.genome.fasta --ignore a  --log-filepath ${base/.bam/.modkit.log}  --filter-threshold T:0.8 --mod-threshold 17802:0.98 $1 ${base/.bam/_pseu.cov_sub_r1.mod.bed}
+	modkit pileup --threads 32 --motif DRACH 2 -r GRCh38.primary_assembly.genome.fasta --ignore 17802  --log-filepath ${base/.bam/.modkit.log}  --filter-threshold A:0.8 --mod-threshold a:0.98 $1 ${base/.bam/_m6A.cov_sub_r1.mod.bed}
 		}
 export -f do_pileup
 
