@@ -5,7 +5,7 @@ ml minimap2/2.26
 ml dorado/0.7.2
 ml pod5
 
-#now we basecall the pod5 from felix folder
+#now we basecall the pod5 
 
 dorado basecaller /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/TEST_folder/rna004_130bps_sup@v5.0.0 /raid/fehof_analysis/RNA004_paper/nanoCEM/Oligo1/ --estimate-poly-a -r --emit-moves --modified-bases m6A pseU -b 320 --device "cuda:0,cuda:1,cuda:2,cuda:3" > Oligo1.0.7.2.unaligned.bam 
 
@@ -13,8 +13,7 @@ dorado basecaller /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/TEST_folde
 
 
 #now we check what happens if we mess with the modified bases model and force it to evalute Y whether that fixes C/T calls or not
-#now we basecall the pod5 from felix folder
-dorado download --model rna004_130bps_hac@v5.0.0_m6A@v1
+
 #cd there and change config.toml to Y
 dorado basecaller /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/TEST_folder/rna004_130bps_sup@v5.0.0 /raid/fehof_analysis/RNA004_paper/nanoCEM/Oligo1/  -r --emit-moves --modified-bases-models ./rna004_130bps_sup@v5.0.0_pseU@v1 -b 320 --device "cuda:0,cuda:1,cuda:2,cuda:3" > Y_eval.Oligo1.0.7.2.unaligned.bam
 
@@ -28,8 +27,7 @@ dorado basecaller /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/TEST_folde
 
 
 #now we check what happens if we  force the pseu models to evaluate miscalled c bases. whether modprobs are okay or not
-#now we basecall the pod5 from felix folder
-##dorado download --model rna004_130bps_hac@v5.0.0_m6A@v1
+
 #cd there and change config.toml to Y
 dorado basecaller /raid/chhewel_analysis/RNA004_Manuscript_reanalysis/TEST_folder/rna004_130bps_sup@v5.0.0 /raid/awiercze_analysis/RESEARCH/LEMKE_SAMPLES/RNA004_A.ROIv5.pod5   -r --emit-moves --modified-bases-models ./rna004_130bps_sup@v5.0.0_pseU@v1 -b 320 --device "cuda:0,cuda:1,cuda:2,cuda:3" > Y_eval.A_vector_004.0.7.2.unaligned.bam
 
