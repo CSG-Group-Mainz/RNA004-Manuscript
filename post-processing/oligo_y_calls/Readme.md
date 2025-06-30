@@ -16,7 +16,7 @@ And edit the config file in your favorite text editor, here we chose vim:
 ```
 vim config.toml
 ```
-Now the relevant line is line 19 starting with motif=T:
+Now the relevant line is line 19 starting with motif=T:  
 ![image](https://github.com/user-attachments/assets/69eee054-79b3-49dc-a2ac-b6fc9173070c)  
 We change line 19 to C and - for good measure - line 11 mod_bases to another modcode that is not associated with pseu. So there is less chance of mixing up our results when evaluating the mod bed files later on. That means, the resulting file will now look like this:
 ![image](https://github.com/user-attachments/assets/4095586e-4921-423b-afc9-a0f13a1c7525)  
