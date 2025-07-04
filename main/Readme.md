@@ -1,7 +1,7 @@
 This script does process the raw pod5 data for all of the main samples in this manuscript. The output are aligned bam files (GRCh38), basic QC statistics (NanoComp) and gene counts (FeatureCounts). 
 
 ##### Some notes for the basecaller options
-Dorado 0.7.2 in the version for this paper had to be run with a number of custom and legacy options, below you will find basic examples for RNA002 and RNA004.
+Dorado 0.7.2 in the version for this paper had to be run with a number of custom and legacy options, below you will find basic examples for RNA004.
 First, the models had to be downloaded and then specified as filepaths, because dorado can not extract the chemistry version for all samples reliably (note: this is not an issue for newer runs, just runs that were produced before the chemistry left the beta testing stage). Example command to download a canonical model:
 ```
 dorado download --model rna004_130bps_sup@v5.0.0
