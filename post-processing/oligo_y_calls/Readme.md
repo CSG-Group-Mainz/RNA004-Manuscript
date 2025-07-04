@@ -1,6 +1,6 @@
 # Custom vector pseudouridine calling
 
-The script in this section was written to analyse the data in the section ***"RNA004 accurately reads the pseudouridylation stochiometry in a targeted reporter system"*** in the main paper. It will take raw *pod5 data as input and emit aligned bam files + modified bed files + modification probability histograms. Of additional note in this section is that the standard dorado pseudoruridine calling was edited to call C bases instead of U bases, in order to evaluate how the pseudouridine modbase model does perform on miscalled C bases from the canonical model.
+The script in this section was written to analyse the data in the section ***"RNA004 accurately reads the pseudouridylation stochiometry in a targeted reporter system"*** in the main paper. It will take raw *pod5 data as input and emit aligned bam files + modified bed files + modification probability histograms. Of additional note in this section is that the standard dorado pseudouridine calling was edited to call C bases instead of U bases, in order to evaluate how the pseudouridine modbase model does perform on miscalled C bases from the canonical model.
 
 
 In order to prepare the custom modbase calling, the normal models have to be downloaded first:  
